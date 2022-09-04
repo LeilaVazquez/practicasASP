@@ -29,6 +29,13 @@ namespace metodos
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta; 
         }
+
+        public void setearProcedimiento(string sp)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = sp;
+
+        }
         public void ejecutarLectura()
         {
             comando.Connection = conexion;

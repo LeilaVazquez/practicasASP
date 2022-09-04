@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticasASP", "PracticasASP\PracticasASP.csproj", "{507C65A8-69FC-47EB-97EB-14ADAC34A86E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{671DE3B8-39AA-42ED-BF39-EE6D49D5F09E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "metodos", "metodos\metodos.csproj", "{A66BDCB4-DD34-4E93-BC7D-3CCBCE5CE32F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{507C65A8-69FC-47EB-97EB-14ADAC34A86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507C65A8-69FC-47EB-97EB-14ADAC34A86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507C65A8-69FC-47EB-97EB-14ADAC34A86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507C65A8-69FC-47EB-97EB-14ADAC34A86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{671DE3B8-39AA-42ED-BF39-EE6D49D5F09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{671DE3B8-39AA-42ED-BF39-EE6D49D5F09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{671DE3B8-39AA-42ED-BF39-EE6D49D5F09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{671DE3B8-39AA-42ED-BF39-EE6D49D5F09E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A66BDCB4-DD34-4E93-BC7D-3CCBCE5CE32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66BDCB4-DD34-4E93-BC7D-3CCBCE5CE32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66BDCB4-DD34-4E93-BC7D-3CCBCE5CE32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66BDCB4-DD34-4E93-BC7D-3CCBCE5CE32F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8ADDB7CE-D100-43A1-A18E-CAA1D16B4AA5}
+	EndGlobalSection
+EndGlobal
