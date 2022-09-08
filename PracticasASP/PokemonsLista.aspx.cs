@@ -13,9 +13,20 @@ namespace PracticasASP
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloMetodos articulo = new ArticuloMetodos();
-            dgvArticulos.DataSource = articulo.listarConSP();
+            dgvArticulos.DataSource = articulo.listar();
             dgvArticulos.DataBind();
 
+        }       
+
+        protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvArticulos.PageIndex = e.NewPageIndex;
+            dgvArticulos.DataBind();
+        }
+        protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = dgvArticulos.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioArticulo.aspx?id=" + id);
         }
     }
 }

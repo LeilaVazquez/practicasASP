@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
-using metodos;
 
 namespace metodos
 {
@@ -114,6 +113,40 @@ namespace metodos
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria",nuevo.Categoria.Id);
                 datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void agregarConSP(Articulos nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                //@codigo varchar(50),
+                //@nombre varchar(50),
+                //@desc varchar(50),
+                //@idMarca int,
+                //@idCategoria int,
+                //@img varchar(1000),
+                //@precio money
+
+                datos.setearProcedimiento("storedAltaArticulo");
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@desc", nuevo.Descripcion);
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@img", nuevo.ImagenUrl);
+                datos.setearParametro("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
