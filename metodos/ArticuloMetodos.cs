@@ -10,7 +10,7 @@ namespace metodos
 {
     public class ArticuloMetodos
     {
-        public  List<Articulos> listar()
+        public  List<Articulos> listar(string id = "")
         {
             List<Articulos> lista = new List<Articulos>();
             SqlConnection conexion = new SqlConnection();
@@ -21,7 +21,11 @@ namespace metodos
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A,CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria";
+                comando.CommandText = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A,CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria ";
+                if( id != "")
+                {
+                    comando.CommandText += " and A.id = " + id;
+                }
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -103,6 +107,7 @@ namespace metodos
                 throw ex;
             }
         }
+
         public void agregar(Articulos nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -189,6 +194,36 @@ namespace metodos
 
         }
 
+        public void modificarConSP(Articulos art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedModificarArt");
+                datos.setearParametro("@codigo", art.Codigo);
+                datos.setearParametro("@nombre", art.Nombre);
+                datos.setearParametro("@descrip", art.Descripcion);
+                datos.setearParametro("@idMarca", art.Marca.Id);
+                datos.setearParametro("@idCat", art.Categoria.Id);
+                datos.setearParametro("@imagen", art.ImagenUrl);
+                datos.setearParametro("@precio", art.Precio);
+                datos.setearParametro("@id", art.Id);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+  
         //filtro avanzado
         public List<Articulos> filtrar(string campo, string criterio, string filtro)
         {
@@ -308,7 +343,7 @@ namespace metodos
                 throw ex;
             }
         }
-
+        
         public void eliminar(int id)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -325,5 +360,22 @@ namespace metodos
                 throw ex;
             }
         }
+        public void eliminarConSP(int id)
+        {
+        AccesoDatos datos = new AccesoDatos();
+
+        try
+        {
+            datos.setearConsulta("storedEliminarArt");
+            datos.setearParametro("@id", id);
+            datos.ejecutarAccion();
+        }
+        catch (Exception ex)
+        {
+
+            throw ex;
+        }
+       }
     }
 }
+

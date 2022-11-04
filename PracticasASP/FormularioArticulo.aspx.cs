@@ -11,15 +11,19 @@ namespace PracticasASP
 {
     public partial class FormularioArticulo : System.Web.UI.Page
     {
+        public bool ConfirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Configuracion inicial de la pantalla
             txtId.Enabled = false;
+            ConfirmaEliminacion = false;
             try
             {
 
                 if (!IsPostBack)
                 {
-                    CategoriaMetodos categoria= new CategoriaMetodos();
+                    CategoriaMetodos categoria = new CategoriaMetodos();
                     List<Categoria> lista = categoria.listar(); //voy a crear una lista con las categorias 
                     // los ddl son clave valor
 
@@ -29,7 +33,7 @@ namespace PracticasASP
                     ddlCategoria.DataBind();
 
                     MarcaMetodos marca = new MarcaMetodos();
-                    List <Marca> lista2 = marca.listar();
+                    List<Marca> lista2 = marca.listar();
 
                     ddlMarca.DataSource = lista2;
                     ddlMarca.DataValueField = "Id";
@@ -37,12 +41,36 @@ namespace PracticasASP
                     ddlMarca.DataBind();
 
                 }
+                //configuracion si estamos modificando
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                if (id != "" && !IsPostBack)
+                {
+                    ArticuloMetodos articulo = new ArticuloMetodos();
+                    //List<Articulos> lista = articulo.listar(id);
+                    // Articulos seleccionado = lista[0];
+                    Articulos seleccionado = (articulo.listar(id))[0];
+
+                    //precargar todos los campos con el articulo seleccionado
+                    txtId.Text = id;
+                    txtCodigo.Text = seleccionado.Codigo;
+                    txtNombre.Text = seleccionado.Nombre;
+                    txtDescripcion.Text = seleccionado.Descripcion;
+                    txtPrecio.Text = seleccionado.Precio.ToString();
+                    txtImagenUrl.Text = seleccionado.ImagenUrl;
+
+
+                    ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
+                    ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
+                    txtImagenUrl_TextChanged(sender, e);
+
+                }
+
             }
             catch (Exception ex)
             {
 
                 Session.Add("error", ex);
-                throw;
+                //redireccion pantalla error
             }
 
         }
@@ -66,20 +94,55 @@ namespace PracticasASP
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
 
-                articulo.agregarConSP(nuevo);
+                if (Request.QueryString["id"] != null)
+                {
+
+                    nuevo.Id = int.Parse(txtId.Text);
+                    articulo.modificarConSP(nuevo);
+                }
+                else
+                    articulo.agregarConSP(nuevo);
+
                 Response.Redirect("PokemonsLista.aspx", false);
+
 
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
-                throw;
+                
             }
         }
 
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
             imgArticulo.ImageUrl = txtImagenUrl.Text;
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmaEliminacion = true;
+        }
+
+        protected void btnConfirmarEliminacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ckConfirmaEliminacion.Checked)
+                {
+                    ArticuloMetodos articulo = new ArticuloMetodos();
+                    articulo.eliminarConSP(int.Parse(txtId.Text));
+                    Response.Redirect("PokemonsLista.aspx");
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
+            }
         }
     }
 }
