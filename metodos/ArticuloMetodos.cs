@@ -232,7 +232,7 @@ namespace metodos
                 
             try
             {
-                string consulta = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A, CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria And ";
+                string consulta = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A, CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria AND ";
 
                 if (campo == "Precio")
                 {                     
@@ -249,15 +249,15 @@ namespace metodos
                             break;
                      }
                 }
-                else if(campo == "Codigo")
+                else    if(campo == "Código")
                 {
                     switch (criterio)
                     {
                         case "Comienza con":
-                            consulta += "Codigo like '" +filtro+ "%' ";
+                            consulta += "Codigo like '" + filtro + "%' ";
                             break;
                         case "Termina con":
-                            consulta += "Codigo like '%" + filtro+ "'";
+                            consulta += "Codigo like '%" + filtro + "'";
                             break;
                         default:
                             consulta += "Codigo like '%" + filtro+ "%'";
@@ -279,38 +279,39 @@ namespace metodos
                             break;
                     }
                 }
-                else if(campo=="Marca")
+                else if(campo == "Marca")
                 {
                     switch (criterio)
                     {
-                        case "Comienza con ":
+                        case "Comienza con":
                             consulta += "M.Descripcion like '" + filtro + "%' ";
                             break;
-                        case "Termina con ":
+                        case "Termina con":
                             consulta += "M.Descripcion like '%" + filtro + "'";
                             break;
                         default:
                             consulta += "M.Descripcion like '%" + filtro + "%'";
                             break;
                     }
-                }else
-                { if (campo == "Categoria") { 
+                 }
+                else //if(campo == "Categoria")//
+                { 
                         switch (criterio)
-                    {
-                        case "Comienza con ":
+                        {
+                        case "Comienza con":
                             consulta += "C.Descripcion like '" + filtro + "%' ";
                             break;
-                        case "Termina con ":
+                        case "Termina con":
                             consulta += "C.Descripcion like '%" + filtro + "'";
                             break;
                         default:
                             consulta += "C.Descripcion like '%" + filtro + "%'";
                             break;
-                    }
+                        }
                 }
-            }
+            
 
-                datos.setearConsulta(consulta);
+               datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -339,7 +340,6 @@ namespace metodos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

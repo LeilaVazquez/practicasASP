@@ -46,6 +46,7 @@
     <Compile Include="CategoriaMetodos.cs" />
     <Compile Include="MarcaMetodos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioMetodos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">

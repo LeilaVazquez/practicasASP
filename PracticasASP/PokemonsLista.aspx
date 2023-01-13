@@ -12,6 +12,49 @@
             </div>
         </div>
     </div>
+    <div class="col-6">
+        <div class="mb-3">
+            <asp:CheckBox Text="Filtro avanzado" runat="server" ID="chkAvanzado" Cssclass="" AutoPostBack="true" OnCheckedChanged="chkAvanzado_CheckedChanged"/>
+        </div>
+    </div>
+
+    <%if(FiltroAvanzado){%>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Campo" runat="server" />
+                <asp:DropDownList AutoPostBack="true" ID="ddlCampo" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
+                    <asp:ListItem Text="Nombre" />
+                    <asp:ListItem Text="Código" />
+                    <asp:ListItem Text="Marca" />
+                    <asp:ListItem Text="Categoría" />
+                    <asp:ListItem Text="Precio" />
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Criterio" runat="server" />
+                <asp:DropDownList ID="ddlCriterio" runat="server" CssClass="form-control">
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">  
+                <asp:Label Text="Filtro" runat="server" />
+                <asp:TextBox runat="server" ID="txtFiltroAvanzado" CssClass="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Button Text="Buscar" runat="server" CssClass="btn btn-primary" ID="btnBuscar"  OnClick="btnBuscar_Click"/>
+            </div>
+        </div>
+    </div>
+    <%} %>
 
 
     <asp:GridView ID="dgvArticulos" runat="server" DataKeyNames="Id"

@@ -69,8 +69,13 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="DetalleArticulo.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="FormularioArticulo.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="MenuLogin.aspx" />
+    <Content Include="Pagina1.aspx" />
+    <Content Include="Pagina2.aspx" />
     <Content Include="PokemonsLista.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -89,6 +94,13 @@
     <Compile Include="DetalleArticulo.aspx.designer.cs">
       <DependentUpon>DetalleArticulo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormularioArticulo.aspx.cs">
       <DependentUpon>FormularioArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,12 +111,40 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MenuLogin.aspx.cs">
+      <DependentUpon>MenuLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuLogin.aspx.designer.cs">
+      <DependentUpon>MenuLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina1.aspx.cs">
+      <DependentUpon>Pagina1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina1.aspx.designer.cs">
+      <DependentUpon>Pagina1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina2.aspx.cs">
+      <DependentUpon>Pagina2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina2.aspx.designer.cs">
+      <DependentUpon>Pagina2.aspx</DependentUpon>
     </Compile>
     <Compile Include="PokemonsLista.aspx.cs">
       <DependentUpon>PokemonsLista.aspx</DependentUpon>
