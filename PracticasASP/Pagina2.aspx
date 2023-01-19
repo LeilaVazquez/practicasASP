@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Acceso denegado</h1>
-    <label>Tenes que ser admin </label>
+    <h1>Estas logueado</h1>
+    <label>Tenes perfil admin </label>
     <br />
     <br />
     <asp:Button Text="Regresar" runat="server" ID="btnRegresar2" OnClick="btnRegresar2_Click" CssClass="btn btn-primary" />

@@ -26,7 +26,7 @@ namespace PracticasASP
                 if (metodos.Loguear(usuario))
                 {
                     Session.Add("usuario", usuario); 
-                    Response.Redirect("MenuLogin.aspx");
+                    Response.Redirect("MenuLogin.aspx", false);
                 }
                 else
                 {

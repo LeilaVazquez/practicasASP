@@ -11,7 +11,11 @@ namespace PracticasASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!(Session["usuario"] != null && ((dominio.Usuario)Session["usuario"]).TipoUsuario == dominio.TipoUsuario.ADMIN))
+            {
+                Session.Add("error", "No tienes permisos para ingresar. Necesitas nivel admin.");
+                Response.Redirect("Error.aspx", false);
+            }
         }
         protected void btnRegresar2_Click(object sender, EventArgs e)
         {

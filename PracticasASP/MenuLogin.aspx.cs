@@ -11,17 +11,21 @@ namespace PracticasASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["usuario"] == null)
+            {
+                Session.Add("error", "Debes loguearte para ingresar");
+                Response.Redirect("Error.aspx", false);
+            }
         }
 
         protected void btnPagina2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Pagina1.aspx");
+            Response.Redirect("Pagina2.aspx");
         }
 
         protected void btnPagina1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Pagina2.aspx");
+            Response.Redirect("Pagina1.aspx");
         }
     }
 }
