@@ -90,30 +90,25 @@ namespace PracticasASP
 
                 nuevo.Marca = new Marca();
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
-
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
 
                 if (Request.QueryString["id"] != null)
                 {
-
                     nuevo.Id = int.Parse(txtId.Text);
                     articulo.modificarConSP(nuevo);
                 }
                 else
+                {
                     articulo.agregarConSP(nuevo);
-
+                }
                 Response.Redirect("PokemonsLista.aspx", false);
-
-
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
-                
             }
         }
-
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
             imgArticulo.ImageUrl = txtImagenUrl.Text;

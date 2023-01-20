@@ -72,8 +72,8 @@ namespace PracticasASP
             {
                 ArticuloMetodos metodos = new ArticuloMetodos();
                 dgvArticulos.DataSource = metodos.filtrar(ddlCampo.SelectedItem.ToString(), 
-                    ddlCriterio.SelectedItem.ToString(), 
-                    txtFiltroAvanzado.Text);
+                ddlCriterio.SelectedItem.ToString(), 
+                txtFiltroAvanzado.Text);
                 dgvArticulos.DataBind();
             }
             catch (Exception ex)

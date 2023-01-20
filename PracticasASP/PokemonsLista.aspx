@@ -19,7 +19,6 @@
     </div>
 
     <%if(FiltroAvanzado){%>
-
     <div class="row">
         <div class="col-3">
             <div class="mb-3">
@@ -55,8 +54,6 @@
         </div>
     </div>
     <%} %>
-
-
     <asp:GridView ID="dgvArticulos" runat="server" DataKeyNames="Id"
         CssClass="table" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
         OnPageIndexChanging="dgvArticulos_PageIndexChanging"

@@ -206,7 +206,7 @@ namespace metodos
                 datos.setearParametro("@descrip", art.Descripcion);
                 datos.setearParametro("@idMarca", art.Marca.Id);
                 datos.setearParametro("@idCat", art.Categoria.Id);
-                datos.setearParametro("@imagen", art.ImagenUrl);
+                datos.setearParametro("@imagen", art.ImagenUrl);  
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.Id);
                 datos.ejecutarAccion();
@@ -214,14 +214,12 @@ namespace metodos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 datos.cerrarConexion();
             }
-
         }
   
         //filtro avanzado
@@ -372,7 +370,6 @@ namespace metodos
         }
         catch (Exception ex)
         {
-
             throw ex;
         }
        }
