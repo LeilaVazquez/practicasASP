@@ -84,7 +84,7 @@ namespace PracticasASP
 
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
-                nuevo.Precio = int.Parse(txtPrecio.Text);
+                nuevo.Precio = decimal.Parse(txtPrecio.Text);
                 nuevo.Descripcion = txtDescripcion.Text;
                 nuevo.ImagenUrl = txtImagenUrl.Text;
 
@@ -102,12 +102,14 @@ namespace PracticasASP
                 {
                     articulo.agregarConSP(nuevo);
                 }
-                Response.Redirect("PokemonsLista.aspx", false);
+
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
             }
+
+            Response.Redirect("PokemonsLista.aspx", false);
         }
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
@@ -118,7 +120,6 @@ namespace PracticasASP
         {
             ConfirmaEliminacion = true;
         }
-
         protected void btnConfirmarEliminacion_Click(object sender, EventArgs e)
         {
             try
@@ -126,16 +127,12 @@ namespace PracticasASP
                 if (ckConfirmaEliminacion.Checked)
                 {
                     ArticuloMetodos articulo = new ArticuloMetodos();
-                    articulo.eliminarConSP(int.Parse(txtId.Text));
+                    articulo.eliminar(int.Parse(txtId.Text));
                     Response.Redirect("PokemonsLista.aspx");
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
                 Session.Add("error", ex);
             }
         }

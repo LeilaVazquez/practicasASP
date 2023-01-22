@@ -10,7 +10,7 @@ namespace metodos
 {
     public class ArticuloMetodos
     {
-        public  List<Articulos> listar(string id = "")
+        public List<Articulos> listar(string id = "")
         {
             List<Articulos> lista = new List<Articulos>();
             SqlConnection conexion = new SqlConnection();
@@ -22,7 +22,7 @@ namespace metodos
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A,CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria ";
-                if( id != "")
+                if (id != "")
                 {
                     comando.CommandText += " and A.id = " + id;
                 }
@@ -35,13 +35,13 @@ namespace metodos
                 {
                     Articulos aux = new Articulos();
                     aux.Id = (int)lector["Id"];
-                    aux.Codigo = (string)lector["Codigo"]; 
+                    aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
 
 
-                    if(!(lector["ImagenUrl"] is DBNull))
-                    aux.ImagenUrl = (string)lector["ImagenUrl"];
+                    if (!(lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl = (string)lector["ImagenUrl"];
 
                     aux.Marca = new Marca();
                     aux.Marca.Id = (int)lector["IdMarca"];
@@ -61,7 +61,7 @@ namespace metodos
                 throw ex;
             }
 
-           
+
         }
 
         public List<Articulos> listarConSP()
@@ -74,7 +74,7 @@ namespace metodos
                 //string consulta = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A, CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria";
                 //datos.setearConsulta(consulta);
                 datos.setearProcedimiento("storedListar");
-               
+
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -114,9 +114,9 @@ namespace metodos
 
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria, ImagenUrl) values ('"+ nuevo.Codigo+ "','"+ nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Precio + "',@idMarca, @idCategoria, @ImagenUrl)");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria, ImagenUrl) values ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Precio + "',@idMarca, @idCategoria, @ImagenUrl)");
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
-                datos.setearParametro("@idCategoria",nuevo.Categoria.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@ImagenUrl", nuevo.ImagenUrl);
                 datos.ejecutarAccion();
             }
@@ -206,7 +206,7 @@ namespace metodos
                 datos.setearParametro("@descrip", art.Descripcion);
                 datos.setearParametro("@idMarca", art.Marca.Id);
                 datos.setearParametro("@idCat", art.Categoria.Id);
-                datos.setearParametro("@imagen", art.ImagenUrl);  
+                datos.setearParametro("@imagen", art.ImagenUrl);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.Id);
                 datos.ejecutarAccion();
@@ -221,33 +221,33 @@ namespace metodos
                 datos.cerrarConexion();
             }
         }
-  
+
         //filtro avanzado
         public List<Articulos> filtrar(string campo, string criterio, string filtro)
         {
-            List<Articulos> lista= new List<Articulos> ();
-            AccesoDatos datos =new AccesoDatos ();
-                
+            List<Articulos> lista = new List<Articulos>();
+            AccesoDatos datos = new AccesoDatos();
+
             try
             {
                 string consulta = "Select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, A.ImagenUrl, C.Descripcion as Categoria, A.Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A, CATEGORIAS C, MARCAS M Where M.Id = A.IdMarca AND C.Id = A.IdCategoria AND ";
 
                 if (campo == "Precio")
-                {                     
-                     switch (criterio)
-                     {
-                         case "Mayor a":
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
                             consulta += "Precio > " + filtro;
                             break;
-                         case "Menor a":
+                        case "Menor a":
                             consulta += "Precio < " + filtro;
                             break;
                         default:
                             consulta += "Precio = " + filtro;
                             break;
-                     }
+                    }
                 }
-                else    if(campo == "Código")
+                else if (campo == "Código")
                 {
                     switch (criterio)
                     {
@@ -258,11 +258,11 @@ namespace metodos
                             consulta += "Codigo like '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "Codigo like '%" + filtro+ "%'";
+                            consulta += "Codigo like '%" + filtro + "%'";
                             break;
                     }
                 }
-                else if(campo == "Nombre")
+                else if (campo == "Nombre")
                 {
                     switch (criterio)
                     {
@@ -277,7 +277,7 @@ namespace metodos
                             break;
                     }
                 }
-                else if(campo == "Marca")
+                else if (campo == "Marca")
                 {
                     switch (criterio)
                     {
@@ -291,11 +291,11 @@ namespace metodos
                             consulta += "M.Descripcion like '%" + filtro + "%'";
                             break;
                     }
-                 }
+                }
                 else //if(campo == "Categoria")//
-                { 
-                        switch (criterio)
-                        {
+                {
+                    switch (criterio)
+                    {
                         case "Comienza con":
                             consulta += "C.Descripcion like '" + filtro + "%' ";
                             break;
@@ -305,11 +305,11 @@ namespace metodos
                         default:
                             consulta += "C.Descripcion like '%" + filtro + "%'";
                             break;
-                        }
+                    }
                 }
-            
 
-               datos.setearConsulta(consulta);
+
+                datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -341,13 +341,13 @@ namespace metodos
                 throw ex;
             }
         }
-        
+
         public void eliminar(int id)
         {
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
+                AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("delete from ARTICULOS where Id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
@@ -360,19 +360,18 @@ namespace metodos
         }
         public void eliminarConSP(int id)
         {
-        AccesoDatos datos = new AccesoDatos();
-
         try
-        {
-            datos.setearConsulta("storedEliminarArt");
-            datos.setearParametro("@id", id);
-            datos.ejecutarAccion();
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("storedEliminarArt");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-       }
     }
 }
 
