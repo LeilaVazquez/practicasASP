@@ -363,7 +363,7 @@ namespace metodos
         try
             {
                 AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("storedEliminarArt");
+                datos.setearProcedimiento("storedEliminarArt");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }

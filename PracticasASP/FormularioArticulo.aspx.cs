@@ -127,7 +127,7 @@ namespace PracticasASP
                 if (ckConfirmaEliminacion.Checked)
                 {
                     ArticuloMetodos articulo = new ArticuloMetodos();
-                    articulo.eliminar(int.Parse(txtId.Text));
+                    articulo.eliminarConSP(int.Parse(txtId.Text));
                     Response.Redirect("PokemonsLista.aspx");
                 }
             }
