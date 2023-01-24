@@ -64,7 +64,6 @@ namespace PracticasASP
                     txtImagenUrl_TextChanged(sender, e);
 
                 }
-
             }
             catch (Exception ex)
             {
@@ -72,7 +71,6 @@ namespace PracticasASP
                 Session.Add("error", ex);
                 //redireccion pantalla error
             }
-
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
