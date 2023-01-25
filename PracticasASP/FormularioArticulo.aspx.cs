@@ -69,7 +69,7 @@ namespace PracticasASP
             {
 
                 Session.Add("error", ex);
-                //redireccion pantalla error
+                Response.Redirect("Error.aspx",false);
             }
         }
 
@@ -132,6 +132,7 @@ namespace PracticasASP
             catch (Exception ex)
             {
                 Session.Add("error", ex);
+                Response.Redirect("Error.aspx", false);
             }
         }
     }

@@ -17,18 +17,20 @@ namespace PracticasASP
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             EmailServices emailServices = new EmailServices();
-            emailServices.armarCorreo(txtEmail.Text, txtAsunto.Text, txtMensaje.Text);
+
             try
             {
+                emailServices.armarCorreo(txtEmail.Text, txtAsunto.Text, txtMensaje.Text); ///validar @ mail
                 emailServices.enviarEmail();
-                
+                Response.Redirect("EmailOk.aspx");
+
             }
             catch (Exception ex)
             {
-
                 Session.Add("error", ex);
+                Response.Redirect("Error.aspx", false);
             }
-            Response.Redirect("EmailOk.aspx");
+
         }
     }
 }

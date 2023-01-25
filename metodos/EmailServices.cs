@@ -17,7 +17,7 @@ namespace metodos
         public EmailServices() ///constructor ver segun el server que utilicemos
         {
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("programationiii@gmail.com", "programacion3"); //mail y contraseña
+            server.Credentials = new NetworkCredential("apptestiii44@gmail.com", "programacion3"); //mail y contraseña
             server.Port = 587; //ver
             server.Host = "smtp.gmail.com"; //ver
         }
@@ -40,7 +40,6 @@ namespace metodos
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
