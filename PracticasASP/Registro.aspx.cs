@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using metodos;
 
 namespace PracticasASP
 {
@@ -23,7 +25,19 @@ namespace PracticasASP
         {
             try
             {
+                Usuario2 user = new Usuario2();
+                Usuario2Metodos usuario2 = new Usuario2Metodos();
+                EmailServices emailService = new EmailServices();
 
+                user.Email = txtEmail.Text;
+                user.Pass = txtPassword.Text;
+                int id = usuario2.insertarNuevo2(user);
+
+                emailService.armarCorreo(user.Email, "Bienvenido", "Hola, estas registrado");
+                emailService.enviarEmail();
+                Response.Redirect("EmailOk.aspx", false); //false para que no cancele la ejecucion
+
+                
             }
             catch (Exception ex) 
             {

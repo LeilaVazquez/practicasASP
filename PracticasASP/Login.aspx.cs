@@ -15,7 +15,7 @@ namespace PracticasASP
         {
 
         }
-        protected void btnIngresar_Click(object sender, EventArgs e)
+        /*protected void btnIngresar_Click(object sender, EventArgs e)
         {
             Usuario usuario;
             UsuarioMetodos metodos = new UsuarioMetodos();
@@ -40,6 +40,40 @@ namespace PracticasASP
                 Response.Redirect("Error.aspx");
             }
 
+        }*/
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            Usuario2 usuario2 = new Usuario2();
+            Usuario2Metodos metodos2 = new Usuario2Metodos();
+            try
+            {
+                usuario2.Email = txtEmail.Text;
+                usuario2.Pass = txtPassword.Text;
+
+                if (metodos2.Login(usuario2))
+                {
+                    //Session.Add("", usuario2);
+                    //Response.Redirect("MenuLogin.aspx", false); minuto 11 
+                }
+                else
+                {
+                    //Session.Add("error", "user o pass incorrectos");
+                    //Response.Redirect("Error.aspx", false);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 }

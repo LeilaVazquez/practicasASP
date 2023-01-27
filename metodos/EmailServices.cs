@@ -17,19 +17,20 @@ namespace metodos
         public EmailServices() ///constructor ver segun el server que utilicemos
         {
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("apptestiii44@gmail.com", "programacion3"); //mail y contraseña
-            server.Port = 587; //ver
-            server.Host = "smtp.gmail.com"; //ver
+            server.Credentials = new NetworkCredential("0f45295bb622ed", "3021f0625d7ce4"); //mail y contraseña
+            server.Port = 2525;
+            server.Host = "smtp.mailtrap.io";
         }
 
         public void armarCorreo(string emailDestino, string asunto, string cuerpo)
         {
             email = new MailMessage();
-            email.From = new MailAddress("noresponder@ecommprogra.com");
+            email.From = new MailAddress("noresponder@programacion.com");
             email.To.Add(emailDestino);
             email.Subject = asunto;
             email.IsBodyHtml = true;
-            email.Body = "<h1>Hola</h1>"; //se puede levantar una plantilla
+            //email.Body = "<h1>Hola</h1>"; //se puede levantar una plantilla
+            email.Body = cuerpo;
         }
 
         public void enviarEmail()

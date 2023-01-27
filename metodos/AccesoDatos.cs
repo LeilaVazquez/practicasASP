@@ -78,5 +78,22 @@ namespace metodos
             }
 
         }
+
+        // execute scalar captura un entero de resultado 
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString()); // devuelve un entero
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
