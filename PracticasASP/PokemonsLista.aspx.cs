@@ -14,6 +14,12 @@ namespace PracticasASP
         public bool FiltroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(Seguridad.esAdmin(Session["sesionActiva"])))
+            {
+                Session.Add("error", "Se requieren permisos de administrador para ingresar");
+                Response.Redirect("Error.aspx", false);
+            }
+
             FiltroAvanzado = chkAvanzado.Checked;
             if (!IsPostBack)
             {

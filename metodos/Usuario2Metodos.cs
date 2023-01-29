@@ -43,7 +43,7 @@ namespace metodos
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Email, Pass, Admin from Usuarios2, where email = @email and Pass = @pass"); // no deberia haber dos users con el mismo mail, esto tiene q devolver un solo registro
+                datos.setearConsulta("Select Id, Email, Pass, Admin from Usuarios2 where Email = @email and Pass = @pass"); // no deberia haber dos users con el mismo mail, esto tiene q devolver un solo registro
                 datos.setearParametro("@email", usuario2.Email);
                 datos.setearParametro("@pass", usuario2.Pass);
                 datos.ejecutarLectura();

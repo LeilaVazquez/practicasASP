@@ -73,6 +73,7 @@
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="MenuLogin.aspx" />
+    <Content Include="MiPerfil.aspx" />
     <Content Include="Pagina1.aspx" />
     <Content Include="Pagina2.aspx" />
     <Content Include="PokemonsLista.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="MenuLogin.aspx.designer.cs">
       <DependentUpon>MenuLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagina1.aspx.cs">
       <DependentUpon>Pagina1.aspx</DependentUpon>

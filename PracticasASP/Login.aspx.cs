@@ -42,7 +42,7 @@ namespace PracticasASP
 
         }*/
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
+        protected void btnIngresar_Click(object sender, EventArgs e) /// VALIDAR que si ya se logueo no aparezga la pestaña login otra vez
         {
             Usuario2 usuario2 = new Usuario2();
             Usuario2Metodos metodos2 = new Usuario2Metodos();
@@ -53,24 +53,21 @@ namespace PracticasASP
 
                 if (metodos2.Login(usuario2))
                 {
-                    //Session.Add("", usuario2);
-                    //Response.Redirect("MenuLogin.aspx", false); minuto 11 
+                    Session.Add("sesionActiva", usuario2);
+                    Response.Redirect("MiPerfil.aspx", false);
                 }
                 else
                 {
-                    //Session.Add("error", "user o pass incorrectos");
-                    //Response.Redirect("Error.aspx", false);
+                    Session.Add("error", "user o pass incorrectos");
+                    Response.Redirect("Error.aspx", false);
                 }
-
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
-
         }
-
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
