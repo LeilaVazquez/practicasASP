@@ -15,7 +15,6 @@ namespace PracticasASP
         {
 
         }
-
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
@@ -41,7 +40,6 @@ namespace PracticasASP
             }
             catch (Exception ex) 
             {
-
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx",false);  
             }

@@ -27,15 +27,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="PokemonsLista.aspx">Lista</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Login.aspx">Login</a>
-                        </li>
+                        
                        <li class="nav-item">
                            <a class="nav-link" href="FormularioContacto.aspx">Email</a>
                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Registro.aspx">Registrarse</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="MiPerfil.aspx">Mi Perfil</a>
                         </li>
@@ -43,6 +38,18 @@
                             <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
                         </li>
                     </ul>
+                </div>
+                <div class="d-flex">
+                    <% if (!metodos.Seguridad.sessionActiva(Session["sesionActiva"]))
+                       { %>
+                            <a href="Login.aspx" class="btn btn-success me-2">Login</a>
+                            <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
+                    <% }
+                        else
+                        {
+                     %>
+                    <asp:Button Text="Salir"  ID="btnSalir" OnClick="btnSalir_Click1" CssClass="btn btn-outline-primary me-2"  runat="server" />
+                <% } %>
                 </div>
             </div>
         </nav>

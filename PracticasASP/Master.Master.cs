@@ -12,15 +12,16 @@ namespace PracticasASP
     {
         protected void Page_Load(object sender, EventArgs e) //exeptuar registrarse y HOME
         {
-            if (!(Page is Login))// ! si page es un objeto del tipo Login -- pregunto la page que esta aca -  lo hago con subtipo
+            if (!(Page is Login || Page is Registro || Page is Default))
             {
                 if (!(Seguridad.sessionActiva(Session["sesionActiva"])))
-                {
                     Response.Redirect("Login.aspx", false);
-                }
             }
-
-
+        }
+        protected void btnSalir_Click1(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }
