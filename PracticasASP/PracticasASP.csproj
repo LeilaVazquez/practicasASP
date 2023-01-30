@@ -68,6 +68,7 @@
     <Content Include="DetalleArticulo.aspx" />
     <Content Include="EmailOk.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Favoritos.aspx" />
     <Content Include="FormularioArticulo.aspx" />
     <Content Include="FormularioContacto.aspx" />
     <Content Include="Global.asax" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioArticulo.aspx.cs">
       <DependentUpon>FormularioArticulo.aspx</DependentUpon>
