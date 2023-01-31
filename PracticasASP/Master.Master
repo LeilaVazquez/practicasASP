@@ -42,14 +42,15 @@
                 <div class="d-flex">
                     <% if (!metodos.Seguridad.sessionActiva(Session["sesionActiva"]))
                        { %>
-                            <a href="Login.aspx" class="btn btn-success me-2">Login</a>
-                            <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
+                           <a href="Login.aspx" class="btn btn-success me-2">Login</a>
+                           <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
                     <% }
-                        else
-                        {
+                       else
+                       {
                      %>
-                    <asp:Button Text="Salir"  ID="btnSalir" OnClick="btnSalir_Click1" CssClass="btn btn-outline-primary me-2"  runat="server" />
-                <% } %>
+                           <asp:Button Text="Salir"  ID="btnSalir" OnClick="btnSalir_Click1" CssClass="btn btn-outline-primary me-2"  runat="server" />
+                           <asp:Image ID="imgPerfil" Style="height:40px; width:40px; border-radius: 50%;" ImageUrl="https://app.cdnstabletransit.net/images/avatar-whiteback.png" runat="server" />
+                <% } %>          
                 </div>
             </div>
         </nav>
