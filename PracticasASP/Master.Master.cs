@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using metodos;
+using dominio;
 
 namespace PracticasASP
 {
@@ -12,7 +13,7 @@ namespace PracticasASP
     {
         protected void Page_Load(object sender, EventArgs e) //exeptuar registrarse y HOME
         {
-            if (!(Page is Login || Page is Registro || Page is Default))
+            if (!(Page is Login || Page is Registro || Page is Default || Page is MenuLogin))
             {
                 if (!(Seguridad.sessionActiva(Session["sesionActiva"])))
                     Response.Redirect("Login.aspx", false);

@@ -29,7 +29,7 @@
                         </li>
                         
                        <li class="nav-item">
-                           <a class="nav-link" href="FormularioContacto.aspx">Email</a>
+                           <a class="nav-link" href="FormularioContacto.aspx">Contacto</a>
                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="MiPerfil.aspx">Mi Perfil</a>
@@ -37,16 +37,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="MenuLogin.aspx">Test Login</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="d-flex">
                     <% if (!metodos.Seguridad.sessionActiva(Session["sesionActiva"]))
-                       { %>
+                        { %>
                            <a href="Login.aspx" class="btn btn-success me-2">Login</a>
                            <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
                     <% }
-                       else
-                       {
+                        else
+                        {
                      %>
                            <asp:Button Text="Salir"  ID="btnSalir" OnClick="btnSalir_Click1" CssClass="btn btn-outline-primary me-2"  runat="server" />
                            <asp:Image ID="imgPerfil" Style="height:40px; width:40px; border-radius: 50%;" ImageUrl="https://app.cdnstabletransit.net/images/avatar-whiteback.png" runat="server" />

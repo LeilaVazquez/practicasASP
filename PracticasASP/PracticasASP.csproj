@@ -205,6 +205,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="ProfileImages\" />
     <Folder Include="Script\" />
   </ItemGroup>
   <ItemGroup>

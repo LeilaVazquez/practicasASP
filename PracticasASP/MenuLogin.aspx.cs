@@ -9,7 +9,7 @@ namespace PracticasASP
 {
     public partial class MenuLogin : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) //NO FUNCIONA PORQUE LEE LA DB USUARIO2 !!
         {
             if(Session["usuario"] == null)
             {
