@@ -31,8 +31,7 @@ namespace PracticasASP
                 user.Email = txtEmail.Text;
                 user.Pass = txtPassword.Text;
                 user.Id = usuario2.insertarNuevo2(user);//autologin
-                Session.Add("usuario", user);
-               
+                Session.Add("sesionActiva", user);
 
                 emailService.armarCorreo(user.Email, "Bienvenido", "Hola, estas registrado");
                 emailService.enviarEmail();

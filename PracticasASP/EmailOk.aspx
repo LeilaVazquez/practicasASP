@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-6">
-            <h2>Email enviado.</h2>
+            <h2>Ya estas registrado.</h2>
+            <asp:Button Text="Volver" runat="server" ID="btnVolver" CssClass="btn btn-primary" OnClick="btnVolver_Click"/>
         </div>
     </div>
 </asp:Content>
