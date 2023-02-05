@@ -46,13 +46,13 @@ namespace PracticasASP
         {
             Usuario2 usuario2 = new Usuario2();
             Usuario2Metodos metodos2 = new Usuario2Metodos();
-           // try
-           // {
-           if(string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            try
             {
-                Session.Add("error", "Debes completar ambos vampos");
-                Response.Redirect("Error.aspx");
-            }
+                if (Validaciones.validaTextoVacio(txtEmail.Text) || Validaciones.validaTextoVacio(txtPassword.Text))
+                {
+                    Session.Add("error", "Debes completar ambos campos");
+                    Response.Redirect("Error.aspx");
+                }
                 usuario2.Email = txtEmail.Text;
                 usuario2.Pass = txtPassword.Text;
 
@@ -66,12 +66,13 @@ namespace PracticasASP
                     Session.Add("error", "user o pass incorrectos");
                     Response.Redirect("Error.aspx", false);
                 }
-            //}
-            //catch (Exception ex)
-           // {
-            //    Session.Add("error", ex.ToString());
-             //   Response.Redirect("Error.aspx");
-           // }
+            }
+            catch (System.Threading.ThreadAbortException ex) { }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

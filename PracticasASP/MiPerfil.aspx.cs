@@ -39,6 +39,10 @@ namespace PracticasASP
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 Usuario2Metodos metodos = new Usuario2Metodos();//hay q tener en cuenta que una cosa es guardar la imagen y otra es levantar la imagen para el login (2 rutas diferentes)
                 Usuario2 user = (Usuario2)Session["sesionActiva"];
 

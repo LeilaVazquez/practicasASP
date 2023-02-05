@@ -4,16 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace metodos
 {
     public static class Validaciones
     {
-        public static bool textoVacio(object control)
+        public static bool validaTextoVacio(object control)
         {
             if (control is TextBox)
-            return true;
+            {
+                if (string.IsNullOrEmpty(((TextBox)control).Text))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
