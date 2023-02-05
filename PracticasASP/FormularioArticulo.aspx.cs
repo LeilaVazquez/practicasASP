@@ -68,7 +68,7 @@ namespace PracticasASP
             catch (Exception ex)
             {
 
-                Session.Add("error", ex);
+                Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx",false);
             }
         }
@@ -104,7 +104,8 @@ namespace PracticasASP
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
 
             Response.Redirect("PokemonsLista.aspx", false);
@@ -131,7 +132,7 @@ namespace PracticasASP
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
+                Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
             }
         }

@@ -16,5 +16,10 @@ namespace PracticasASP
                 lblMensaje.Text = Session["error"].ToString();
             }
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

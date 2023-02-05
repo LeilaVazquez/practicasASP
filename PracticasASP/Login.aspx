@@ -8,7 +8,7 @@
             <h2>Login</h2>
             <div class="mb-3">
                 <label class="form-label">User</label>
-                <asp:TextBox runat="server" ID="txtEmail" placeholder="Email" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtEmail" REQUIRED placeholder="Email" CssClass="form-control" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
