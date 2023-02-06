@@ -4,7 +4,7 @@
     <style>
         .validacion{
             color: red;
-            font-size: 10px;
+            font-size: 15px;
         }
     </style>
 </asp:Content>
@@ -19,7 +19,7 @@
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
-                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="el nombre es requerido" ControlToValidate="txtNombre" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="El nombre es requerido" ControlToValidate="txtNombre" runat="server" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
