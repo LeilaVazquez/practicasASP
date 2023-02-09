@@ -15,6 +15,7 @@
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                <!-- email:   ^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$ -->
             </div>
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
@@ -24,6 +25,8 @@
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
                 <asp:TextBox runat="server" ID="txtApellido" CssClass="form-control" />
+                <!-- <asp:RangeValidator ErrorMessage="Fuera de rango" Type="Integer" MaximumValue="256" MinimumValue="1" ControlToValidate="txtApellido" runat="server" /> -->
+                <!-- <asp:RegularExpressionValidator ErrorMessage="Solo números" validationExpression="^[0-9]+$" ControlToValidate="txtApellido" runat="server" /> -->
             </div>
             <div class="mb-3">
                 <label class="form-label">Fecha de Nacimiento</label>
