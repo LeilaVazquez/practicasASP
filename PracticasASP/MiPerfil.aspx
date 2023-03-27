@@ -7,7 +7,7 @@
             font-size: 15px;
         }
     </style>
-    <script>    
+    <!-- <script>    
         function validar() {
             //captura el control
             const txtApellido = document.getElementById("txtApellido");
@@ -17,8 +17,8 @@
             }
             txtApellido.classList.remove("is-invalid");
             return true;
-        }
-    </script>
+        } 
+    </script> -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Mi Perfil</h2>
@@ -37,8 +37,8 @@
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
                 <asp:TextBox runat="server" ClientIDMode="Static" ID="txtApellido" CssClass="form-control" />
-                <!-- <asp:RangeValidator ErrorMessage="Fuera de rango" Type="Integer" MaximumValue="256" MinimumValue="1" ControlToValidate="txtApellido" runat="server" /> -->
-                <!-- <asp:RegularExpressionValidator ErrorMessage="Solo números" validationExpression="^[0-9]+$" ControlToValidate="txtApellido" runat="server" /> -->
+                <!--<asp:RangeValidator ErrorMessage="Fuera de rango" Type="Integer" MaximumValue="256" MinimumValue="1" ControlToValidate="txtApellido" runat="server" /> -->
+                <!--<asp:RegularExpressionValidator ErrorMessage="Solo números" validationExpression="^[0-9]+$" ControlToValidate="txtApellido" runat="server" />-->
             </div>
             <div class="mb-3">
                 <label class="form-label">Fecha de Nacimiento</label>
@@ -55,8 +55,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <asp:Button Text="Guardar" OnClick="btnGuardar_Click" CssClass="btn btn-primary" OnClientClick="return validar()" ID="btnGuardar" runat="server" />
+        <div class="col-md-4"> <!-- OnClientClick="return validar()" -->
+            <asp:Button Text="Guardar"  CssClass="btn btn-primary" OnClick="btnGuardar_Click" ID="btnGuardar" runat="server" />
             <asp:Button Text="Regresar" CssClass="btn" runat="server" ID="btnRegresar" />
         </div>
     </div>

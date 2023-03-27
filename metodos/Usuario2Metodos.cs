@@ -69,7 +69,7 @@ namespace metodos
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Update Usuarios2 set ImagenPerfil = @ImagenPerfil, Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @Fecha where Id = @I d");
+                datos.setearConsulta("Update Usuarios2 set ImagenPerfil = @ImagenPerfil, Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @Fecha where Id = @Id");
                // datos.setearParametro("@ImagenPerfil", user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
                 datos.setearParametro("@ImagenPerfil", (object)user.ImagenPerfil ?? DBNull.Value); //null coalescing operator
                 datos.setearParametro("@Nombre", user.Nombre);

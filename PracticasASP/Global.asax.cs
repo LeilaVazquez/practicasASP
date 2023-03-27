@@ -12,7 +12,7 @@ namespace PracticasASP
     {
         protected void Application_Start(object sender, EventArgs e) 
         {
-           /* string JQueryVer = "1.11.3"; // js centralizado - optimiza la pagina 
+            string JQueryVer = "1.11.3"; // js centralizado - optimiza la pagina 
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
                 Path = "~/js/jquery-" + JQueryVer + ".min.js",
@@ -21,7 +21,7 @@ namespace PracticasASP
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-" + JQueryVer + ".js",
                 CdnSupportsSecureConnection = true,
                 LoadSuccessExpression = "window.jQuery"
-            });*/
+            });
         }
         void Application_Error(object sender, EventArgs e)
         {
